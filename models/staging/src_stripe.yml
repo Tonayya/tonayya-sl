@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+ - name: tonayya_sl
+   database: analytics
+   schema: tonayya_sl
+   tables:
+     - name: payment
