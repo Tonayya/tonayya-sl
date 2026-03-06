@@ -1,4 +1,17 @@
 semantic_models:
+  - name: customers
+    description: Customer dimension table
+    model: ref('dim_customers')
+    entities:
+      - name: customer_id
+        type: primary
+    dimensions:
+      - name: customer_first_name
+        type: categorical
+        expr: first_name
+      - name: customer_last_name
+        type: categorical
+        expr: last_name
   - name: orders
     defaults:
       agg_time_dimension: order_date
