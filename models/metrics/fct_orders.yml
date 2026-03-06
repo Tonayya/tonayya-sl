@@ -77,8 +77,9 @@ metrics:
     description: "The month to date value of all orders"
     type: cumulative
     type_params:
+      cumulative_type_params:
+        window: 7 days
       measure: order_total
-      grain_to_date: month
   # Derived metric
   - name: "pct_of_orders_that_are_large"
     label: "pct_of_orders_that_are_large"
