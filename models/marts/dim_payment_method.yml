@@ -15,3 +15,16 @@ semantic_models:
       - name: payment_status
         type: categorical
         expr: status
+    measures:
+      - name: payment_method_count
+        description: Count of payment methods
+        agg: count
+        expr: payment_method
+
+metrics:
+  - name: payment_method_count
+    description: Count of payment methods
+    type: simple
+    label: Payment Method Count
+    type_params:
+      measure: payment_method_count
