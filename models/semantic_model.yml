@@ -6,8 +6,8 @@ saved_queries:
         - fct_orders
       group_by:
         - Entity('order_id')
-      where:
-        - "{{TimeDimension('metric_time')}} > current_timestamp - interval '1 week'"
+        - "TimeDimension('metric_time', 'day')"
+        - "TimeDimension('metric_time', 'month')"
     exports:
       - name: order_metrics
         config:
