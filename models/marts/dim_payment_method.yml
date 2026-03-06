@@ -1,0 +1,17 @@
+version: 2
+
+semantic_models:
+  - name: payment_method
+    description: Standalone payment method dimension table
+    model: ref('dim_payment_method')
+    entities:
+      - name: payment_method
+        type: primary
+        expr: payment_method
+    dimensions:
+      - name: payment_method_name
+        type: categorical
+        expr: payment_method
+      - name: payment_status
+        type: categorical
+        expr: status
