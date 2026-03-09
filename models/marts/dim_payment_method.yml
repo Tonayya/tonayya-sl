@@ -4,8 +4,6 @@ semantic_models:
   - name: payment_method
     description: Standalone payment method dimension table
     model: ref('dim_payment_method')
-    defaults:
-      agg_time_dimension: payment_date
     entities:
       - name: payment_method
         type: primary
@@ -17,20 +15,3 @@ semantic_models:
       - name: payment_status
         type: categorical
         expr: status
-      - name: payment_date
-        type: time
-        type_params:
-          time_granularity: day
-    measures:
-      - name: payment_method_count
-        description: Count of payment methods
-        agg: count
-        expr: payment_method
-
-metrics:
-  - name: payment_method_count
-    description: Count of payment methods
-    type: simple
-    label: Payment Method Count
-    type_params:
-      measure: payment_method_count
