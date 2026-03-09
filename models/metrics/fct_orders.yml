@@ -1,4 +1,5 @@
 semantic_models:
+
   - name: customers
     description: Customer dimension table
     model: ref('dim_customers')
@@ -12,17 +13,21 @@ semantic_models:
       - name: customer_last_name
         type: categorical
         expr: last_name
+
   - name: orders
     defaults:
       agg_time_dimension: order_date
     description: |
-      Order fact table. This table’s grain is one row per order
+      Order fact table. This table's grain is one row per order
     model: ref('fct_orders')
     entities:
       - name: order_id
         type: primary
       - name: customer_id
         type: foreign
+      - name: payment_method
+        type: foreign
+        expr: payment_method
     dimensions:
       - name: order_date
         type: time
@@ -50,6 +55,7 @@ semantic_models:
 
 
 metrics: 
+
   - name: fct_orders
     description: bla
     type: simple         
